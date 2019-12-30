@@ -57,3 +57,33 @@ if 18 < age <= 65:
 # message = age >= 18 ? "Eligible": "Not Eligible"
 message = "Eligible" if age >= 18 else "Not Eligible"
 print(message)
+
+
+def increment(number: int, by: int = 1) -> tuple:
+    return (number, number + by)
+
+
+print(increment(2, 59))
+
+
+def multiply(*list):
+    total = 1
+    for number in list:
+        total *= number
+    return total
+
+
+print(multiply(2, 3, 4, 5))
+
+
+def save_user(**user):
+    print(user)
+
+
+save_user(id=1, name="admin")
+
+
+def greet():
+    if True:
+        message = "a"
+    print(message)
