@@ -66,4 +66,7 @@ items = [
 def sort_item(item):
     return item[1]
 
-items.sort(sort_item())
+items.sort(key=sort_item)
+print(items)
+
+# 8 - Lambda Functions
