@@ -66,7 +66,7 @@ def increment(number: int, by: int = 1) -> tuple:
 print(increment(2, 59))
 
 
-def multiply(*list):
+def multiply(*list):  #Takes abitrary number of variables
     total = 1
     for number in list:
         total *= number
