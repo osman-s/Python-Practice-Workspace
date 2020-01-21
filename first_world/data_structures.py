@@ -220,16 +220,31 @@ combined = {**first, **second, "z": 1}
 print(combined)
 
 # 23 Exercise: Most repeated character in sentence
+# sentence = "This is a common interview question"
+# char_frequency = {}
+# for char in sentence:
+#     if char in char_frequency:
+#         char_frequency[char] += 1
+#     else:
+#         char_frequency[char] = 1
+# char_frequency_sorted = sorted(
+#     char_frequency.items(),
+#     key=lambda kv: kv[1],
+#     reverse=True)
+# # pprint(char_frequency, width=1)
+# print(char_frequency_sorted[0])
+
+
+
+
 sentence = "This is a common interview question"
-char_frequency = {}
+letters = {}
 for char in sentence:
-    if char in char_frequency:
-        char_frequency[char] += 1
+    if char in letters:
+        letters[char] += 1
     else:
-        char_frequency[char] = 1
-char_frequency_sorted = sorted(
-    char_frequency.items(),
-    key=lambda kv: kv[1],
-    reverse=True)
-# pprint(char_frequency, width=1)
-print(char_frequency_sorted[0])
+        letters[char] = 1
+
+letters = sorted(letters.items(), key=lambda letter: letter[1], reverse=True)
+print("yes")
+print("yes", letters)
