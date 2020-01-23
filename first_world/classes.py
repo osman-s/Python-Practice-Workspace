@@ -46,22 +46,22 @@ print( point + other)
 # 9. Making Custom Containers
 class TagCloud:
     def __init__(self):
-        self.tags = {}
+        self.__tags = {}
 
     def add(self, tag):
-        self.tags[tag.lower()] = self.tags.get(tag.lower(), 0) + 1
+        self.__tags[tag.lower()] = self.__tags.get(tag.lower(), 0) + 1
 
     def __getitem__(self, tag):
-        return self.tags.get(tag.lower(), 0)
+        return self.__tags.get(tag.lower(), 0)
 
     def __setitem__(self, tag, count):
-        self.tags[tag.lower()] = count
+        self.__tags[tag.lower()] = count
 
     def __len__(self):
-        return len(self.tags)
+        return len(self.__tags)
 
     def __iter__(self):
-        return iter(self.tags)
+        return iter(self.__tags)
 
 cloud = TagCloud()
 cloud["python"] = 10
@@ -69,8 +69,28 @@ len(cloud)
 cloud.add("Python")
 cloud.add("python")
 cloud.add("python")
-print(cloud.tags)
+# print(cloud.__tags)
 # len(cloud)
 # cloud["python"] = 10
 # for tag in cloud:
 #     print(tag)
+# 10. Private Members 
+# print(cloud.__tags["PYTHON"])
+print(cloud.__dict__)
+
+# 11. Properties
+class Product:
+    def __init__(self, price):
+        self.price = price
+    @property
+    def price(self):
+        return self.__price
+    @price.setter
+    def price(self, value):
+        if value < 0:
+            raise ValueError("Price cannot be negative.")
+        self.__price = value
+
+product = Product(10)
+# product.price = -1
+print(product.price)
